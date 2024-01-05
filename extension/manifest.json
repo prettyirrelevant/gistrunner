@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "gistrunner",
+  "version": "0.0.1",
+  "permissions": ["storage"],
+  "description": "Run code snippets in Github Gist on the click of a button",
+  "content_scripts": [
+    {
+      "js": ["js/jquery.min.js", "js/inject.js"],
+      "matches": ["https://gist.github.com/*/*"],
+      "run_at": "document_end"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.jpeg",
+    "32": "icons/icon32.jpeg",
+    "48": "icons/icon48.jpeg",
+    "128": "icons/icon128.jpeg"
+  },
+
+  "background": {
+    "service_worker": "js/background.js"
+  }
+}

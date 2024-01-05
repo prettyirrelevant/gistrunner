@@ -25,3 +25,9 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+*.pem
+
+# Paas config
+fly.toml
+hop.yml
