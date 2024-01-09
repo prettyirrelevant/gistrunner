@@ -33,15 +33,15 @@
 - [ ] C#
 - [ ] C++
 - [ ] Zig
-- [x] Lua 🎉
-- [x] Ruby 💎
-- [x] Rust 🦀
-- [x] Julia 🔢
-- [x] Python 🐍
-- [x] Golang 🏎️
-- [x] Kotlin 🚀
-- [x] Javascript ☕️
-- [x] Typescript ⌨️
+- [x] Lua
+- [x] Ruby
+- [x] Rust
+- [x] Julia
+- [x] Python
+- [x] Golang
+- [x] Kotlin
+- [x] Javascript
+- [x] Typescript
 
 ### 🔌 Dependencies
 
@@ -51,8 +51,6 @@
 
 - [ ] Support gists that are not truncated
 - [ ] Add expiry to supported languages cache
-
-Let me know if you need any other emojis or have additional suggestions!
 
 
 ## 🤹 Usage <sup>[(Back to top)](#--------gistrunner--)</sup>
