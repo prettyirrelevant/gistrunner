@@ -6,12 +6,12 @@
   <br>
 </h1>
 
-<h4 align="center">Supercharge Github Gist by making code snippets executable.</h4>
+<h4 align="center">Your go-to 💡 for running 🏃‍♂️ code snippets directly on GitHub Gist!</h4>
 
 <p align="center">
   <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/prettyirrelevant/gistrunner/build.yml?branch=main&style=for-the-badge&logo=github">
   <img src="https://img.shields.io/badge/Go-1.21+-00ADD8?style=for-the-badge&logo=go" alt="License">
-  <img src="https://img.shields.io/badge/Javascript-F7DF1E.svg?style=for-the-badge&logo=Typescript&logoColor=white" alt="Typescript version">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=for-the-badge" alt="Typescript version">
   <img src="https://img.shields.io/github/license/prettyirrelevant/gistrunner?style=for-the-badge" alt="License">
 </p>
 
@@ -27,28 +27,51 @@
 ## 🎯 Features
 <sup>[(Back to top)](#--------gistrunner--)</sup>
 
-> **NOTE:** This is a merely proof of concept (POC) and code execution might not work as expected due to bugs or uncaught edge cases.
+> **Note:** This is an early stage proof of concept (PoC). It may be buggy or limited. The goal is to demonstrate the possibilities and gauge interest.
 
-- [x] Language support
-  - [ ] C
-  - [ ] C#
-  - [ ] C++
-  - [ ] Zig
-  - [x] Lua
-  - [x] Ruby
-  - [x] Rust
-  - [x] Julia
-  - [x] Python
-  - [x] Golang
-  - [x] Kotlin
-  - [x] Javascript
-  - [x] Typescript
-- [ ] Dependency support
-- [ ] Support gists that are not truncated(extension)
-- [ ] Add expiry to supported languages cache(extension)
+### 👨‍💻 Languages
 
-## 🤹 Usage
-<sup>[(Back to top)](#--------gistrunner--)</sup>
+- [ ] C
+- [ ] C#
+- [ ] C++
+- [ ] Zig
+- [x] Lua 🎉
+- [x] Ruby 💎
+- [x] Rust 🦀
+- [x] Julia 🔢
+- [x] Python 🐍
+- [x] Golang 🏎️
+- [x] Kotlin 🚀
+- [x] Javascript ☕️
+- [x] Typescript ⌨️
+
+### 🔌 Dependencies
+
+- [ ] Support for packages/dependencies ⏳
+
+### 🖥️ Extension
+
+- [ ] Support gists that are not truncated
+- [ ] Add expiry to supported languages cache
+
+Let me know if you need any other emojis or have additional suggestions!
+
+
+## 🤹 Usage <sup>[(Back to top)](#--------gistrunner--)</sup>
+
+### 💻 API
+You can use the API directly to run arbitrary code snippets. See the [API docs](#run-code) below for more details.
+
+### 📦 Chrome Extension
+🆕 The browser extension is coming soon! Check back for the download link.
+
+🤔 In the meantime, you can load it manually:
+
+1. Clone this repo
+2. Go to `chrome://extensions` in your browser
+3. Enable "Developer mode"
+4. Click "Load unpacked" and select the extension directory
+5. Enjoy! 🎉
 
 
 ## 🌵 Folder Structure
