@@ -59,7 +59,7 @@
 You can use the API directly to run arbitrary code snippets. See the [API docs](#run-code) below for more details.
 
 ### 📦 Chrome Extension
-🆕 The browser extension is coming soon! Check back for the download link.
+🆕 The browser extension is coming soon(pending Chrome Webstore review)! Check back for the download link.
 
 🤔 In the meantime, you can load it manually:
 
