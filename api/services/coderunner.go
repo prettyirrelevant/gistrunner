@@ -34,9 +34,9 @@ func NewCodeRunner(url string, logger *zap.Logger) (*CodeRunner, error) {
 	if err = runner.clearCache(); err != nil {
 		return nil, err
 	}
-	// if err = runner.setupCodeRunnerImages(); err != nil {
-	// 	return nil, err
-	// }
+	if err = runner.setupCodeRunnerImages(); err != nil {
+		return nil, err
+	}
 
 	return runner, nil
 }
