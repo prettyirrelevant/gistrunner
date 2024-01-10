@@ -53,21 +53,24 @@
 - [ ] Add expiry to supported languages cache
 
 
-## 🤹 Usage <sup>[(Back to top)](#--------gistrunner--)</sup>
+## 🤹 Usage
+<sup>[(Back to top)](#--------gistrunner--)</sup>
 
 ### 💻 API
 You can use the API directly to run arbitrary code snippets. See the [API docs](#run-code) below for more details.
 
 ### 📦 Chrome Extension
-🆕 The browser extension is coming soon(pending Chrome Webstore review)! Check back for the download link.
+The browser extension is now live on the Chrome Web Store! 🎉
 
-🤔 In the meantime, you can load it manually:
+You can install it here: https://chrome.google.com/webstore/detail/mbgnplbkkklomfbfcbeeanmmnabmmlbk
+
+To load the extension manually for development:
 
 1. Clone this repo
 2. Go to `chrome://extensions` in your browser
 3. Enable "Developer mode"
 4. Click "Load unpacked" and select the extension directory
-5. Enjoy! 🎉
+5. Enjoy! 🚀
 
 
 ## 🌵 Folder Structure
