@@ -5,23 +5,23 @@ type ProgrammingLanguage string
 func (p *ProgrammingLanguage) ContainerCommand() []string {
 	switch *p {
 	case Python:
-		return []string{"/bin/sh", "-c", "python /code.py"}
+		return []string{"/bin/sh", "-c", "python /tmp/code.py"}
 	case Ruby:
-		return []string{"/bin/sh", "-c", "ruby /code.rb"}
+		return []string{"/bin/sh", "-c", "ruby /tmp/code.rb"}
 	case Javascript:
-		return []string{"/bin/sh", "-c", "node /code.js"}
+		return []string{"/bin/sh", "-c", "node /tmp/code.js"}
 	case Typescript:
-		return []string{"/bin/sh", "-c", "bun /code.ts"}
+		return []string{"/bin/sh", "-c", "bun /tmp/code.ts"}
 	case Lua:
-		return []string{"/bin/sh", "-c", "lua /code.lua"}
+		return []string{"/bin/sh", "-c", "lua /tmp/code.lua"}
 	case Kotlin:
-		return []string{"/bin/sh", "-c", "kotlinc -include-runtime -d /code.jar app/code.kt && kotlin /code.jar"}
+		return []string{"/bin/sh", "-c", "kotlinc -include-runtime -d /tmp/code.jar /tmp/code.kt && kotlin /tmp/code.jar"}
 	case Julia:
-		return []string{"/bin/sh", "-c", "julia /code.jl"}
+		return []string{"/bin/sh", "-c", "julia /tmp/code.jl"}
 	case Rust:
-		return []string{"/bin/sh", "-c", "rustc -o /code /code.rs && /code"}
+		return []string{"/bin/sh", "-c", "rustc -o /tmp/code /tmp/code.rs && /tmp/code"}
 	case Golang:
-		return []string{"/bin/sh", "-c", "go run /code.go"}
+		return []string{"/bin/sh", "-c", "go run /tmp/code.go"}
 	default:
 		return nil
 	}
