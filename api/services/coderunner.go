@@ -3,10 +3,12 @@ package services
 import (
 	"context"
 	"io"
+	"time"
 
 	"github.com/docker/docker/api/types"
 	"github.com/docker/docker/api/types/container"
 	"github.com/docker/docker/api/types/filters"
+	"github.com/docker/docker/api/types/mount"
 	"github.com/docker/docker/client"
 	"go.uber.org/zap"
 
@@ -54,7 +56,8 @@ func (c *CodeRunner) setupCodeRunnerImages() error {
 }
 
 func (c *CodeRunner) Run(lang languages.ProgrammingLanguage, code string) (string, error) {
-	ctx := context.Background()
+	ctx, cancel := context.WithTimeout(context.TODO(), 10*time.Second)
+	defer cancel()
 
 	resp, err := c.client.ContainerCreate(
 		ctx,
@@ -62,11 +65,26 @@ func (c *CodeRunner) Run(lang languages.ProgrammingLanguage, code string) (strin
 			Tty:   true,
 			Cmd:   lang.ContainerCommand(),
 			Image: languages.SupportedLanguagesImages[lang],
+			User:  "nobody", // Run as a non-root user
 		},
-		nil,
-		nil,
-		nil,
-		"",
+		&container.HostConfig{
+			Resources: container.Resources{
+				Memory: 64 * 1024 * 1024, // 64MB memory limit
+			},
+			CapDrop:        []string{"ALL"},                 // Drop all capabilities
+			UsernsMode:     container.UsernsMode("private"), // Enable user namespaces
+			Privileged:     false,                           // Disable privileged mode
+			ReadonlyRootfs: true,                            // Read-only filesystem
+			Mounts: []mount.Mount{
+				{
+					Type:     mount.TypeBind,
+					Source:   "/tmp",
+					Target:   "/tmp",
+					ReadOnly: false,
+				},
+			},
+		},
+		nil, nil, "",
 	)
 	if err != nil {
 		return "", err
@@ -78,7 +96,7 @@ func (c *CodeRunner) Run(lang languages.ProgrammingLanguage, code string) (strin
 		return "", err
 	}
 
-	if err = c.client.CopyToContainer(ctx, resp.ID, "/", tarReader, types.CopyToContainerOptions{AllowOverwriteDirWithFile: true}); err != nil {
+	if err = c.client.CopyToContainer(ctx, resp.ID, "/tmp", tarReader, types.CopyToContainerOptions{AllowOverwriteDirWithFile: true}); err != nil {
 		return "", err
 	}
 
@@ -95,7 +113,7 @@ func (c *CodeRunner) Run(lang languages.ProgrammingLanguage, code string) (strin
 	case <-statusCh:
 	}
 
-	rawLogs, err := c.client.ContainerLogs(ctx, resp.ID, types.ContainerLogsOptions{ShowStdout: true, ShowStderr: true, Timestamps: true, Details: true})
+	rawLogs, err := c.client.ContainerLogs(ctx, resp.ID, types.ContainerLogsOptions{ShowStdout: true, ShowStderr: true, Details: true})
 	if err != nil {
 		return "", nil
 	}
